@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="bg-[#F0FDF4]">
+<body class="bg-[#F0FDF4] h-[100vh]">
     <!-- header section  -->
     <header>
         <!-- nav bar  -->
@@ -79,38 +79,47 @@
     </header>
 
     <!-- load spinner  -->
-    <div class="flex justify-center items-center my-4 hidden" id="spinner-container"><span class="loading loading-spinner loading-xl"></span></div>
+    <div class="flex justify-center items-center my-4 hidden" id="spinner-container"><span
+            class="loading loading-spinner loading-xl"></span></div>
     <!-- main section  -->
     <main class="bg-[#F0FDF4] py-14 " id="all-plants-container">
         <h2 class="text-4xl font-semibold text-center ">Choose Your Trees</h2>
 
         <!-- all tree section  -->
-        <section class="flex gap-6 w-[1650px] md:max-h-[920px] md:min-h-[440px]   mt-5 mx-auto ">
+        <section class="flex justify-center gap-6 w-[95vw] md:max-h-[920px]  mt-5 mx-auto" id="all-tree">
             <!-- categories section  -->
-            <div class="flex-1 text-black h-auto" id="category-container">
-                
+            <div class="w-[300px] text-black h-auto" id="category-container">
+
 
             </div>
             <!-- tree section  -->
-            <div class="w-[1090px] grid grid-cols-3 gap-5 overflow-y-scroll " id="plants-container">
+            <div class="w-[1090px] max-h-[920px] grid grid-cols-3 gap-5 overflow-y-scroll " id="plants-container">
 
 
 
             </div>
             <!-- cart section  -->
-            <div class="bg-red-600 flex-1"></div>
+            <div class=" w-[300px] max-h-[920px]
+             overflow-y-scroll bg-white p-4 rounded-lg" id="cart">
+                <h2 class="font-semibold text-xl mb-3">Your Cart</h2>
+                <div id="cart-container" class="overflow-y-scroll  rounded-lg ">
+
+                </div>
+                <hr class="mt-2">
+                <p class="font-medium text-lg   bg-white px-3 py-2 m[-16px]">Total: ৳<span>00</span></p>
+            </div>
 
         </section>
 
-        
+
         <!-- Open the modal using ID.showModal() method -->
         <!-- <button class="btn" onclick="plant_modal.showModal()">open modal</button> -->
         <dialog id="plant_modal" class="modal modal-bottom sm:modal-middle">
             <div class="modal-box ">
                 <div id="plant-detail-container" class="space-y-4">
-                    
+
                 </div>
-                
+
 
 
                 <div class="modal-action">
@@ -122,7 +131,7 @@
             </div>
         </dialog>
 
-        
+
 
     </main>
 

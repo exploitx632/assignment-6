@@ -6,23 +6,7 @@ const allPlants = () => {
     .then((data) => showAllPlants(data.plants));
 };
 const showAllPlants = (plants) => {
-  const plantsContainer = document.getElementById("plants-container");
-  plantsContainer.innerHTML = "";
-
-  plants.forEach((plant) => {
-    const div = document.createElement("div");
-    div.innerHTML = `<div class="p-4 flex flex-col justify-around items-start space-y-5 bg-white rounded-lg h-full">
-                     <div  class="w-[320px] h-[186px] rounded-md bg-[url(${plant.image})] bg-cover bg-center"></div>
-                    <h2 onclick="loadPlantDetails(${plant.id})" class="text-[14px] cursor-pointer font-bold">${plant.name}</h2>
-                    <p class="text-[12px]">${plant.description}</p>
-                    <div class="text-[14px] flex flex-row justify-between w-full h-[28px] items-center">
-                        <button class="btn bg-[#DCFCE7] text-[#15803D] rounded-3xl">${plant.category}</button>
-                        <p class="font-bold">৳${plant.price}</p>
-                    </div>
-                    <button class="btn text-white bg-[#15803D] w-full">Add to Cart</button>
-                </div>`;
-    plantsContainer.appendChild(div);
-  });
+  innerHTMLfunc(plants);
 };
 allPlants();
 
@@ -30,8 +14,10 @@ allPlants();
 const removeActiveBtn = () => {
   const removeActive = document.querySelectorAll(".category-btn");
   removeActive.forEach((btn) => btn.classList.remove("active"));
+  document.getElementById('cart').style.height="920px";
 };
 
+// spinner function when network throttling
 const manageSpinner = (status) => {
   if (status === true) {
     document.getElementById("spinner-container").classList.remove("hidden");
@@ -55,7 +41,7 @@ const allCategories = () => {
 
 // show all of the category btn
 const showAllCategory = (categories) => {
-    manageSpinner(false);
+  manageSpinner(false);
   const categoryContainer = document.getElementById("category-container");
   categoryContainer.innerHTML = " ";
   categoryContainer.innerHTML = `<button onclick="allPlants()" class=" category-btn h-[40px] py-2 px-4 rounded-sm  w-full text-left cursor-pointer hover:bg-green-600" id="categoryBtnAll">All Trees</button>`;
@@ -81,34 +67,63 @@ const categoryPlant = (id) => {
     .then((data) => {
       removeActiveBtn();
       document.getElementById(`categoryBtn${id}`).classList.add("active");
+      document.getElementById('cart').style.height="400px";
       showCategoryPlant(data.plants);
     });
 };
 
-// show all of the plant by clicking its category
-const showCategoryPlant = (plants) => {
-  manageSpinner(false);
+const innerHTMLfunc = (plants) => {
   const plantsContainer = document.getElementById("plants-container");
   plantsContainer.innerHTML = "";
 
   plants.forEach((plant) => {
+    let plantName = plant.name;
+    let plantPrice = plant.price;
     const div = document.createElement("div");
-    div.innerHTML = `<div class="p-4 flex flex-col justify-around items-start space-y-5 bg-white rounded-lg h-full">
-
+    div.innerHTML = `<div class="p-4 flex flex-col justify-around items-start space-y-5 bg-white rounded-lg max-h-[420px]">
                     <div  class="w-[320px] h-[186px] rounded-md bg-[url(${plant.image})] bg-cover bg-center"></div>
                     
-                    <h2 onclick="loadPlantDetails(${plant.id})" class="text-[14px] font-bold cursor-pointer">${plant.name}</h2>
+                    <h2 onclick="loadPlantDetails(${plant.id})" class="text-[14px] font-bold cursor-pointer " id="plant-name">${plant.name}</h2>
                     <p class="text-[12px]">${plant.description}</p>
                     <div class="text-[14px] flex flex-row justify-between w-full h-[28px] items-center">
                         <button class="btn bg-[#DCFCE7] text-[#15803D] rounded-3xl">${plant.category}</button>
                         <p class="font-bold">৳${plant.price}</p>
                     </div>
-                    <button class="btn text-white bg-[#15803D] w-full">Add to Cart</button>
+                    <button onclick="cartAdd('${plantName}',${plantPrice})" class="btn text-white bg-[#15803D] w-full add-cart">Add to Cart</button>
                 </div>`;
     plantsContainer.appendChild(div);
+
+    // let price = plant.price;
   });
 };
+// show all of the plant by clicking its category 
+const showCategoryPlant = (plants) => {
+  manageSpinner(false);
+  innerHTMLfunc(plants);
+};
+let count = 0;
+const cartAdd = (name, price) => {
+    count++;
+  const cartContainer = document.getElementById("cart-container");
+  const div = document.createElement("div");
+  div.innerHTML = `
+  <div class="h-[64px] w-full p-[15px] bg-[#F0FDF4] rounded-lg mb-3 flex justify-between items-center">
+    <div class="flex-1">
+        <h2 class="text-[14px] font-semibold">${name}</h2>
+            <p class="text-[14px]">${price} * ${count}</p>
+        </div>
+        <div class="remove-btn h-8 w-8 flex justify-center items-center">X</div>
+    </div>
+    `;
 
+    // delete item from cart 
+     div.querySelector('.remove-btn')
+    .addEventListener('click',()=>{
+        div.remove();
+    })
+  cartContainer.appendChild(div);
+};
+// fetch api for get plants details
 const loadPlantDetails = (id) => {
   const url = `https://openapi.programming-hero.com/api/plant/${id}`;
   fetch(url)
@@ -116,6 +131,7 @@ const loadPlantDetails = (id) => {
     .then((data) => showPlantDetails(data.plants));
 };
 
+// show plants detail from api
 const showPlantDetails = (plant) => {
   const plantDetailContainer = document.getElementById(
     "plant-detail-container"

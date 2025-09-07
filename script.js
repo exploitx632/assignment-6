@@ -12,7 +12,7 @@ const showAllPlants = (plants)=>{
     plants.forEach(plant =>{
         const div = document.createElement('div');
         div.innerHTML = `<div class="p-4 flex flex-col justify-around items-start space-y-5 bg-white rounded-lg h-full">
-                    <img src="${plant.image}" alt="" class="w-[318px] h-[186px] rounded-md">
+                     <div  class="w-[320px] h-[186px] rounded-md bg-[url(${plant.image})] bg-cover bg-center"></div>
                     <h2 class="text-[14px] font-bold">${plant.name}</h2>
                     <p class="text-[12px]">${plant.description}</p>
                     <div class="text-[14px] flex flex-row justify-between w-full h-[28px] items-center">
@@ -66,7 +66,9 @@ const showCategoryPlant = (plants)=>{
     plants.forEach(plant =>{
         const div = document.createElement('div');
         div.innerHTML = `<div class="p-4 flex flex-col justify-around items-start space-y-5 bg-white rounded-lg h-full">
-                    <img src="${plant.image}" alt="" class="w-[318px] h-[186px] rounded-md">
+
+                    <div  class="w-[320px] h-[186px] rounded-md bg-[url(${plant.image})] bg-cover bg-center"></div>
+                    
                     <h2 class="text-[14px] font-bold">${plant.name}</h2>
                     <p class="text-[12px]">${plant.description}</p>
                     <div class="text-[14px] flex flex-row justify-between w-full h-[28px] items-center">
@@ -79,7 +81,16 @@ const showCategoryPlant = (plants)=>{
     })
 }
 
+const loadPlantDetails = (id)=>{
+    const url = `https://openapi.programming-hero.com/api/plant/${id}`;
+    fetch(url)
+    .then(res => res.json())
+    .then(data => console.log(data))
+  }
 
+  const showPlantDetails = ()=>{
+
+  }
   
   
   

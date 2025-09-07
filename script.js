@@ -26,3 +26,34 @@ const showAllPlants = (plants)=>{
 }
 allPlants();
 
+
+// all categories
+const allCategories = () => {
+    const url = "https://openapi.programming-hero.com/api/categories";
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => showAllCategory(data.categories));
+  };
+  
+  const showAllCategory = (categories) => {
+    const categoryContainer = document.getElementById("category-container");
+    categoryContainer.innerHTML = " ";
+    categoryContainer.innerHTML = '<button onclick="allPlants()" class="h-[40px] py-2 px-4 rounded-sm bg-[#15803D] text-white w-full text-left cursor-pointer">All Trees</button>';
+    
+    categories.forEach((category) => {
+  
+      const div = document.createElement("div");
+      div.innerHTML = `
+      <button onclick="categoryPlant(${category.id})" class="h-[40px] py-2 px-4 rounded-sm  w-full text-left cursor-pointer">${category.category_name}</button>`;
+      categoryContainer.appendChild(div);
+    });
+  };
+  
+  
+
+  
+  
+  
+  
+  
+  allCategories();

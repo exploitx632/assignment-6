@@ -78,25 +78,39 @@
         </section>
     </header>
     <!-- main section  -->
-    <main class="bg-[#F0FDF4] py-14" >
+    <main class="bg-[#F0FDF4] py-14">
         <h2 class="text-4xl font-semibold text-center ">Choose Your Trees</h2>
 
         <!-- all tree section  -->
         <section class="flex gap-6 w-[1650px]  mt-5 mx-auto ">
             <!-- categories section  -->
-            <div class="flex-1 text-black h-auto"id="category-container">
-                
+            <div class="flex-1 text-black h-auto" id="category-container">
+
             </div>
             <!-- tree section  -->
             <div class="w-[1090px] grid grid-cols-3 gap-5  " id="plants-container">
 
-                
+
 
             </div>
             <!-- cart section  -->
             <div class="bg-red-600 flex-1"></div>
 
         </section>
+        <!-- Open the modal using ID.showModal() method -->
+        <button class="btn" onclick="my_modal_5.showModal()">open modal</button>
+        <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+            <div class="modal-box">
+                <h3 class="text-lg font-bold">Hello!</h3>
+                <p class="py-4">Press ESC key or click the button below to close</p>
+                <div class="modal-action">
+                    <form method="dialog">
+                        <!-- if there is a button in form, it will close the modal -->
+                        <button class="btn">Close</button>
+                    </form>
+                </div>
+            </div>
+        </dialog>
 
     </main>
 

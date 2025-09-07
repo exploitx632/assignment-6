@@ -2,3 +2,8 @@
         font-family: "Inter", sans-serif;
         font-style: normal;    
 }
+
+.active{
+    background-color: #15803D;
+    color: white;
+}

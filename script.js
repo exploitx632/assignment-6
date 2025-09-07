@@ -26,27 +26,46 @@ const showAllPlants = (plants) => {
 };
 allPlants();
 
+// remove active class function 
+const removeActiveBtn = () => {
+    const removeActive = document.querySelectorAll(".category-btn");
+    removeActive.forEach((btn) => btn.classList.remove("active"));
+  };  
+    
+    
+  
 // all categories
 const allCategories = () => {
   const url = "https://openapi.programming-hero.com/api/categories";
   fetch(url)
     .then((res) => res.json())
-    .then((data) => showAllCategory(data.categories));
+    .then((data) => {
+        showAllCategory(data.categories);
+    });
 };
 
+
+
 const showAllCategory = (categories) => {
+    
   const categoryContainer = document.getElementById("category-container");
   categoryContainer.innerHTML = " ";
-  categoryContainer.innerHTML =
-    '<button onclick="allPlants()" class="h-[40px] py-2 px-4 rounded-sm bg-[#15803D] text-white w-full text-left cursor-pointer">All Trees</button>';
+  categoryContainer.innerHTML =`<button onclick="allPlants()" class=" category-btn h-[40px] py-2 px-4 rounded-sm  w-full text-left cursor-pointer hover:bg-green-600" id="categoryBtnAll">All Trees</button>`;
 
   categories.forEach((category) => {
     const div = document.createElement("div");
     div.innerHTML = `
-      <button onclick="categoryPlant(${category.id})" class="h-[40px] py-2 px-4 rounded-sm  w-full text-left cursor-pointer">${category.category_name}</button>`;
+      <button onclick="categoryPlant(${category.id})" class="category-btn h-[40px] py-2 px-4 rounded-sm  w-full text-left cursor-pointer hover:bg-green-600" id="categoryBtn${category.id}">${category.category_name}</button>`;
     categoryContainer.appendChild(div);
   });
+  document.getElementById('categoryBtnAll')
+  .addEventListener('click',()=>{
+    removeActiveBtn()
+    document.getElementById('categoryBtnAll').classList.add('active');
+    
+  })
 };
+
 
 // plants by categories
 
@@ -54,7 +73,11 @@ const categoryPlant = (id) => {
   const url = `https://openapi.programming-hero.com/api/category/${id}`;
   fetch(url)
     .then((res) => res.json())
-    .then((data) => showCategoryPlant(data.plants));
+    .then((data) => {
+        removeActiveBtn()
+        document.getElementById(`categoryBtn${id}`).classList.add('active');
+        showCategoryPlant(data.plants);
+    });
 };
 
 const showCategoryPlant = (plants) => {
@@ -67,7 +90,7 @@ const showCategoryPlant = (plants) => {
 
                     <div  class="w-[320px] h-[186px] rounded-md bg-[url(${plant.image})] bg-cover bg-center"></div>
                     
-                    <h2 class="text-[14px] font-bold">${plant.name}</h2>
+                    <h2 onclick="loadPlantDetails(${plant.id})" class="text-[14px] font-bold cursor-pointer">${plant.name}</h2>
                     <p class="text-[12px]">${plant.description}</p>
                     <div class="text-[14px] flex flex-row justify-between w-full h-[28px] items-center">
                         <button class="btn bg-[#DCFCE7] text-[#15803D] rounded-3xl">${plant.category}</button>
@@ -87,13 +110,14 @@ const loadPlantDetails = (id) => {
 };
 
 const showPlantDetails = (plant) => {
-  console.log(plant);
-  const plantDetailContainer = document.getElementById("plant-detail-container");
-  plantDetailContainer.innerHTML = `<h2 class="text-2xl font-bold">${plant.name}</h2>
+  const plantDetailContainer = document.getElementById(
+    "plant-detail-container"
+  );
+  plantDetailContainer.innerHTML = `<h2  class="text-2xl font-bold">${plant.name}</h2>
                     <div class="bg-[url(${plant.image})] h-[200px] w-full rounded-sm bg-cover bg-center"></div>
                     <p ><span class="font-semibold text-xl">Category:</span> ${plant.category}</p>
                     <p ><span class="font-bold">Price:</span> ৳${plant.price}</p>
-                    <p> <span class="font-bold">Description:</span> ${plant.description}</p>`
+                    <p> <span class="font-bold">Description:</span> ${plant.description}</p>`;
   document.getElementById("plant_modal").showModal();
 };
 

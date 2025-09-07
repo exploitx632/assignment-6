@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="bg-[#F0FDF4]">
     <!-- header section  -->
     <header>
         <!-- nav bar  -->
@@ -77,8 +77,11 @@
             <div><img src="assets/hero-leaf2.png" alt=""></div>
         </section>
     </header>
+
+    <!-- load spinner  -->
+    <div class="flex justify-center items-center my-4 hidden" id="spinner-container"><span class="loading loading-spinner loading-xl"></span></div>
     <!-- main section  -->
-    <main class="bg-[#F0FDF4] py-14 ">
+    <main class="bg-[#F0FDF4] py-14 " id="all-plants-container">
         <h2 class="text-4xl font-semibold text-center ">Choose Your Trees</h2>
 
         <!-- all tree section  -->

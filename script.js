@@ -26,31 +26,39 @@ const showAllPlants = (plants) => {
 };
 allPlants();
 
-// remove active class function 
+// remove active class function
 const removeActiveBtn = () => {
-    const removeActive = document.querySelectorAll(".category-btn");
-    removeActive.forEach((btn) => btn.classList.remove("active"));
-  };  
-    
-    
-  
+  const removeActive = document.querySelectorAll(".category-btn");
+  removeActive.forEach((btn) => btn.classList.remove("active"));
+};
+
+const manageSpinner = (status) => {
+  if (status === true) {
+    document.getElementById("spinner-container").classList.remove("hidden");
+    document.getElementById("all-plants-container").classList.add("hidden");
+  } else {
+    document.getElementById("all-plants-container").classList.remove("hidden");
+    document.getElementById("spinner-container").classList.add("hidden");
+  }
+};
+
 // all categories
 const allCategories = () => {
+  manageSpinner(true);
   const url = "https://openapi.programming-hero.com/api/categories";
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
-        showAllCategory(data.categories);
+      showAllCategory(data.categories);
     });
 };
 
-
-
+// show all of the category btn
 const showAllCategory = (categories) => {
-    
+    manageSpinner(false);
   const categoryContainer = document.getElementById("category-container");
   categoryContainer.innerHTML = " ";
-  categoryContainer.innerHTML =`<button onclick="allPlants()" class=" category-btn h-[40px] py-2 px-4 rounded-sm  w-full text-left cursor-pointer hover:bg-green-600" id="categoryBtnAll">All Trees</button>`;
+  categoryContainer.innerHTML = `<button onclick="allPlants()" class=" category-btn h-[40px] py-2 px-4 rounded-sm  w-full text-left cursor-pointer hover:bg-green-600" id="categoryBtnAll">All Trees</button>`;
 
   categories.forEach((category) => {
     const div = document.createElement("div");
@@ -58,14 +66,11 @@ const showAllCategory = (categories) => {
       <button onclick="categoryPlant(${category.id})" class="category-btn h-[40px] py-2 px-4 rounded-sm  w-full text-left cursor-pointer hover:bg-green-600" id="categoryBtn${category.id}">${category.category_name}</button>`;
     categoryContainer.appendChild(div);
   });
-  document.getElementById('categoryBtnAll')
-  .addEventListener('click',()=>{
-    removeActiveBtn()
-    document.getElementById('categoryBtnAll').classList.add('active');
-    
-  })
+  document.getElementById("categoryBtnAll").addEventListener("click", () => {
+    removeActiveBtn();
+    document.getElementById("categoryBtnAll").classList.add("active");
+  });
 };
-
 
 // plants by categories
 
@@ -74,13 +79,15 @@ const categoryPlant = (id) => {
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
-        removeActiveBtn()
-        document.getElementById(`categoryBtn${id}`).classList.add('active');
-        showCategoryPlant(data.plants);
+      removeActiveBtn();
+      document.getElementById(`categoryBtn${id}`).classList.add("active");
+      showCategoryPlant(data.plants);
     });
 };
 
+// show all of the plant by clicking its category
 const showCategoryPlant = (plants) => {
+  manageSpinner(false);
   const plantsContainer = document.getElementById("plants-container");
   plantsContainer.innerHTML = "";
 

@@ -25,45 +25,105 @@
 </head>
 
 <body>
+    <!-- header section  -->
     <header>
         <!-- nav bar  -->
-        
-            <nav class="navbar bg-base-100 shadow-sm px-[100px] bg-[#15803D] text-white">
-                <div class="navbar-start">
-                    <div class="dropdown">
-                        <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M4 6h16M4 12h8m-8 6h16" />
-                            </svg>
-                        </div>
-                        <ul tabindex="0"
-                            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                            <li><a>Item 1</a></li>
-                            <li>
-                                <a>Parent</a>
-                                <ul class="p-2">
-                                    <li><a>Submenu 1</a></li>
-                                    <li><a>Submenu 2</a></li>
-                                </ul>
-                            </li>
-                            <li><a>Item 3</a></li>
-                        </ul>
-                    </div>
-                    <a class="btn btn-ghost text-xl">Green Earth</a>
-                </div>
-                <div class="navbar-center hidden lg:flex list-none gap-5">
-                    <li><a>About</a></li>
-                    <li><a>Gallery</a></li>
-                    <li><a>Plant a Tree</a></li>
-                </div>
-                <div class="navbar-end ">
-                    <button class="btn bg-[#FACC15] border-none rounded-3xl shadow-none text-[#15803D]">Plant a Tree</button>
-                </div>
-            </nav>
-    </header>
 
+        <nav class="navbar bg-base-100 shadow-sm px-[100px] bg-[#15803D] text-white">
+            <div class="navbar-start">
+                <div class="dropdown">
+                    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h8m-8 6h16" />
+                        </svg>
+                    </div>
+                    <ul tabindex="0"
+                        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                        <li><a>Item 1</a></li>
+                        <li>
+                            <a>Parent</a>
+                            <ul class="p-2">
+                                <li><a>Submenu 1</a></li>
+                                <li><a>Submenu 2</a></li>
+                            </ul>
+                        </li>
+                        <li><a>Item 3</a></li>
+                    </ul>
+                </div>
+                <a class="btn btn-ghost text-xl">Green Earth</a>
+            </div>
+            <div class="navbar-center hidden lg:flex list-none gap-5">
+                <li><a>About</a></li>
+                <li><a>Gallery</a></li>
+                <li><a>Plant a Tree</a></li>
+            </div>
+            <div class="navbar-end ">
+                <button class="btn bg-[#FACC15] border-none rounded-3xl shadow-none text-[#15803D]">Plant a
+                    Tree</button>
+            </div>
+        </nav>
+
+        <!-- banner section  -->
+        <section class="banner flex justify-center items-center bg-[#CFF0DC] ">
+            <div><img src="assets/hero-leaf1.png" alt=""></div>
+            <div class="banner-content flex flex-col justify-center items-center space-y-5 px-10 text-center">
+                <h1 class="text-5xl font-bold">Plant a Tree, Grow a Future</h1>
+                <p>Join our mission to plant 1 million trees and make the Earth greener for future
+                    generations.</p>
+                <button class="btn rounded-3xl text-[#15803D] bg-[#FACC15]">Get Involved</button>
+            </div>
+            <div><img src="assets/hero-leaf2.png" alt=""></div>
+        </section>
+    </header>
+    <!-- main section  -->
+    <main class="bg-[#F0FDF4] py-14" >
+        <h2 class="text-4xl font-semibold text-center ">Choose Your Trees</h2>
+
+        <!-- all tree section  -->
+        <section class="flex gap-6 w-[1650px]  mt-5 mx-auto ">
+            <!-- categories section  -->
+            <div class="flex-1 text-black h-auto"id="category-container">
+                
+            </div>
+            <!-- tree section  -->
+            <div class="w-[1090px] grid grid-cols-3 gap-5  " id="plants-container">
+
+                
+
+            </div>
+            <!-- cart section  -->
+            <div class="bg-red-600 flex-1"></div>
+
+        </section>
+
+    </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="script.js"></script>
 </body>
 
 </html>

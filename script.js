@@ -10,11 +10,13 @@ const showAllPlants = (plants) => {
 };
 allPlants();
 
+const cartList = [];
+
 // remove active class function
 const removeActiveBtn = () => {
   const removeActive = document.querySelectorAll(".category-btn");
   removeActive.forEach((btn) => btn.classList.remove("active"));
-  document.getElementById('cart').style.height="920px";
+  document.getElementById("cart").style.height = "920px";
 };
 
 // spinner function when network throttling
@@ -67,7 +69,7 @@ const categoryPlant = (id) => {
     .then((data) => {
       removeActiveBtn();
       document.getElementById(`categoryBtn${id}`).classList.add("active");
-      document.getElementById('cart').style.height="400px";
+      document.getElementById("cart").style.height = "400px";
       showCategoryPlant(data.plants);
     });
 };
@@ -96,33 +98,47 @@ const innerHTMLfunc = (plants) => {
     // let price = plant.price;
   });
 };
-// show all of the plant by clicking its category 
+// show all of the plant by clicking its category
 const showCategoryPlant = (plants) => {
   manageSpinner(false);
   innerHTMLfunc(plants);
 };
-let count = 0;
 const cartAdd = (name, price) => {
-    count++;
+  const addedItem = cartList.find((item) => item.name === name);
+  if (addedItem) {
+    addedItem.quantity += 1;
+  } else {
+    cartList.push({ name, price, quantity: 1 });
+  }
+  updateCart();
+};
+const updateCart = () => {
   const cartContainer = document.getElementById("cart-container");
-  const div = document.createElement("div");
-  div.innerHTML = `
+  cartContainer.innerHTML = "";
+  let totalPrice = 0;
+  cartList.forEach((item, ind) => {
+    totalPrice += item.price * item.quantity;
+    const div = document.createElement("div");
+    div.innerHTML = `
   <div class="h-[64px] w-full p-[15px] bg-[#F0FDF4] rounded-lg mb-3 flex justify-between items-center">
     <div class="flex-1">
-        <h2 class="text-[14px] font-semibold">${name}</h2>
-            <p class="text-[14px]">${price} * ${count}</p>
+        <h2 class="text-[14px] font-semibold">${item.name}</h2>
+            <p class="text-[14px]">${item.price} * ${item.quantity}</p>
         </div>
         <div class="remove-btn h-8 w-8 flex justify-center items-center">X</div>
     </div>
     `;
 
-    // delete item from cart 
-     div.querySelector('.remove-btn')
-    .addEventListener('click',()=>{
-        div.remove();
-    })
-  cartContainer.appendChild(div);
+    // delete item from cart
+    div.querySelector(".remove-btn").addEventListener("click", () => {
+      cartList.splice(ind, 1);
+      updateCart();
+    });
+    cartContainer.appendChild(div);
+  });
+  document.getElementById("total-price").innerText = `${totalPrice}`;
 };
+
 // fetch api for get plants details
 const loadPlantDetails = (id) => {
   const url = `https://openapi.programming-hero.com/api/plant/${id}`;

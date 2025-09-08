@@ -106,7 +106,8 @@
 
                 </div>
                 <hr class="mt-2">
-                <p class="font-medium text-lg   bg-white px-3 py-2 m[-16px]">Total: ৳<span id="total-price">00</span></p>
+                <p class="font-medium text-lg   bg-white px-3 py-2 m[-16px]">Total: ৳<span id="total-price">00</span>
+                </p>
             </div>
 
         </section>
@@ -137,7 +138,9 @@
             <div class="campaign-container flex gap-4 justify-center items-center w-[1250px] p-[50px] mx-auto">
                 <div class="campaign-img flex-1"><img src="assets/about.png" alt=""></div>
                 <div class="campaign-cantent flex-1 space-y-4 ">
-                    <p>Green Earth is a global tree plantation initiative dedicated to fighting climate change. Since our start, we’ve planted over 500,000 trees worldwide. By joining our campaign, you help restore forests, create habitats for wildlife, and combat global warming.</p>
+                    <p>Green Earth is a global tree plantation initiative dedicated to fighting climate change. Since
+                        our start, we've planted over 500,000 trees worldwide. By joining our campaign, you help restore
+                        forests, create habitats for wildlife, and combat global warming.</p>
                     <ul class="list-inside list-disc">
                         <li>Restoration of natural habitats</li>
                         <li>Improvement of air quality</li>
@@ -169,10 +172,35 @@
         </section>
 
 
+        <!-- plant form today -->
+        <section class="bg-[#166534] h-[590px] w-full flex flex-col justify-center items-center space-y-9">
+            <h2 class="text-3xl font-semibold text-white">Plant a Tree Today</h2>
+            <div class="plant-form h-[311px] w-[650px] p-[40px] bg-[#15803D] rounded-lg space-y-4">
+                <div class="flex flex-col space-y-3">
+                    <input type="text" placeholder="Enter Name" class="h-[48px] rounded-lg bg-white p-3">
+                    <input type="email" placeholder="Enter Email" class="h-[48px] rounded-lg bg-white p-3">
+                    <div class="btn text-start" popovertarget="popover-1" style="anchor-name:--anchor-1">
+                        Number of Trees
+                    </div>
+                    <ul class="dropdown menu w-52 rounded-box bg-base-100 h-[48px] rounded-lg" popover id="popover-1"
+                        style="position-anchor:--anchor-1">
+                        <li><a>Item 1</a></li>
+                        <li><a>Item 2</a></li>
+                        <li><a>Item 3</a></li>
+                    </ul>
+                </div>
+                <button class="bg-[#FACC15] w-full h-[48px] rounded-3xl">Donate Now</button>
+            </div>
+        </section>
+
+
     </main>
 
 
+    <footer class="h-[72px] bg-[#14532D] p-[25px]">
+        <p class="text-center text-white">© 2025 Green Earth. All Rights Reserved.</p>
 
+    </footer>
 
 
 

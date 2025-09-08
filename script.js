@@ -160,4 +160,12 @@ const showPlantDetails = (plant) => {
   document.getElementById("plant_modal").showModal();
 };
 
+const selectBtn = document.getElementById('dropdown-btn');
+const items = document.querySelectorAll('.dropdown-item')
+items.forEach(item => {
+  item.addEventListener('click',()=>{
+    selectBtn.innerText = item.innerText;
+  }
+  );
+})
 allCategories();

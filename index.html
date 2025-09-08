@@ -62,8 +62,9 @@
         <!-- banner section  -->
         <section class="banner md:flex justify-center items-center bg-[#CFF0DC] ">
             <div class="hidden md:block"><img src="assets/hero-leaf1.png" alt=""></div>
-            <div class="banner-content md:flex flex-col justify-center items-center space-y-5 md:px-10 text-center pt-5">
-                <h1 class="text-5xl font-bold">Plant a Tree, Grow a Future</h1>
+            <div
+                class="banner-content md:flex flex-col justify-center items-center space-y-2 md:space-y-5 px-3 md:px-10 text-center pt-5">
+                <h1 class=" text-2xl md:text-5xl font-bold">Plant a Tree, Grow a Future</h1>
                 <p>Join our mission to plant 1 million trees and make the Earth greener for future
                     generations.</p>
                 <button class="btn rounded-3xl text-[#15803D] bg-[#FACC15]">Get Involved</button>
@@ -76,19 +77,21 @@
     <div class="flex justify-center items-center my-4 hidden" id="spinner-container"><span
             class="loading loading-spinner loading-xl"></span></div>
     <!-- main section  -->
-    <main class="bg-[#F0FDF4] md:pt-14 pt-7" id="all-plants-container">
+    <main class="bg-[#F0FDF4] md:pt-14 pt-7 " id="all-plants-container">
         <h2 class="md:text-4xl text-xl font-semibold text-center ">Choose Your Trees</h2>
 
         <!-- all tree section  -->
         <section
-            class="md:grid md:grid-cols-5 md:gap-6 md:w-[1250px] w-[100vw] md:max-h-[880px] h-auto  md:mt-5 mx-auto space-y-5 px-4" id="all-tree">
+            class="md:grid md:grid-cols-5 md:gap-6 md:w-[1650px] w-[100vw] md:max-h-[880px] h-auto  md:mt-5 mx-auto space-y-5 px-4"
+            id="all-tree">
             <!-- categories section  -->
             <div class="md:col-span-1 text-black h-auto mb-5" id="category-container">
 
 
             </div>
             <!-- tree section  -->
-            <div class="flex flex-col  col-span-3 md:max-h-[880px] md:grid grid-cols-3 gap-5 md:overflow-y-scroll " id="plants-container">
+            <div class="flex flex-col  col-span-3 md:max-h-[880px] md:grid grid-cols-3 gap-5 md:overflow-y-scroll "
+                id="plants-container">
 
 
 
@@ -128,9 +131,10 @@
         </dialog>
 
         <!-- campaign section  -->
-        <section class="py-8 space-y-5">
+        <section class="py-8 space-y-5 md:w-[1650px] mx-auto">
             <h2 class="text-center text-3xl font-semibold">About the Campaign</h2>
-            <div class="campaign-container md:flex gap-4 justify-center items-center md:w-[1250px] md:p-[50px] px-4 mx-auto space-y-4">
+            <div
+                class="campaign-container md:flex gap-4 justify-center items-center md:w-[1250px] md:p-[50px] px-4 mx-auto space-y-4">
                 <div class="campaign-img flex-1"><img src="assets/about.png" alt=""></div>
                 <div class="campaign-cantent flex-1 space-y-4 ">
                     <p>Green Earth is a global tree plantation initiative dedicated to fighting climate change. Since
@@ -148,18 +152,21 @@
 
         <!-- impact section  -->
 
-        <section class="  space-y-7 bg-[#CFF0DC] md:p-[100px] p-4">
+        <section class="  space-y-7 bg-[#CFF0DC] w-full  md:p-[100px] p-4">
             <h2 class="text-3xl font-semibold text-center">Our Impact</h2>
             <div class="impact-container md:w-[1250px] w-full flex flex-col mx-auto md:grid grid-cols-3 gap-10">
-                <div class="p-[40px] text-center bg-white h-[156px] rounded-lg space-y-3">
+                <div
+                    class="p-[40px] text-center bg-white h-[156px] rounded-lg space-y-3 hover:bg-[#1ba34d64] hover:scale-110 hover:transition-transform duration-300 ease-in-out">
                     <h2 class="text-3xl font-bold text-[#15803D]">500K+</h2>
                     <p>Trees Planted</p>
                 </div>
-                <div class="p-[40px] text-center bg-white h-[156px] rounded-lg space-y-3">
+                <div
+                    class="p-[40px] text-center bg-white h-[156px] rounded-lg space-y-3 hover:bg-[#1ba34d64] hover:scale-110 hover:transition-transform duration-300 ease-in-out">
                     <h2 class="text-3xl font-bold text-[#15803D]">120+</h2>
                     <p>Communities Involved</p>
                 </div>
-                <div class="p-[40px] text-center bg-white h-[156px] rounded-lg space-y-3">
+                <div
+                    class="p-[40px] text-center bg-white h-[156px] rounded-lg space-y-3 hover:bg-[#1ba34d64] hover:scale-110 hover:transition-transform duration-300 ease-in-out">
                     <h2 class="text-3xl font-bold text-[#15803D]">30+</h2>
                     <p>Countries Reached</p>
                 </div>
@@ -168,20 +175,29 @@
 
 
         <!-- plant form today -->
-        <section class="bg-[#166534] md:h-[590px]  h-auto w-full p-4 flex flex-col justify-center items-center space-y-9">
+        <section
+            class="bg-[#166534] md:h-[590px]  h-auto w-full p-4 flex flex-col justify-center items-center space-y-5 md:space-y-9">
             <h2 class="text-3xl font-semibold text-white">Plant a Tree Today</h2>
             <div class="plant-form md:h-[311px] md:w-[650px] w-full p-4 md:p-[40px] bg-[#15803D] rounded-lg space-y-4">
                 <div class="flex flex-col space-y-3">
-                    <input type="text" placeholder="Enter Name" class="h-[48px] rounded-lg bg-white p-3 border-none">
-                    <input type="email" placeholder="Enter Email" class="h-[48px] rounded-lg bg-white p-3 border-none">
-                    <select name="" id="" class="h-[48px] outline-none rounded-lg bg-white p-3 border-none">
-                        <option value="">Number of Trees</option>
-                        <option value="">Item 1</option>
-                        <option value="">Item 2</option>
-                        <option value="">Item 3</option>
-                    </select>
+                    <input type="text" placeholder="Enter Name" class="h-[48px] rounded-sm bg-white p-3 border-none">
+                    <input type="email" placeholder="Enter Email" class="h-[48px] rounded-sm bg-white p-3 border-none">
+
+                    <div class="dropdown w-full">
+                        <div tabindex="0" role="button" id="dropdown-btn" class="bg-white p-3 rounded-sm w-full h-[48px]">Number of Trees</div>
+                        <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-full p-2 shadow">
+                          <li><a class="dropdown-item">Number of Trees</a></li>
+                          <li><a class="dropdown-item">1 Tree - $5</a></li>
+                          <li><a class="dropdown-item">5 Tree - $25</a></li>
+                          <li><a class="dropdown-item">10 Tree - $50</a></li>
+                        </ul>
+                      </div>
+
+
+
+
                 </div>
-                <button class="bg-[#FACC15] w-full h-[48px] rounded-3xl">Donate Now</button>
+                <button class="bg-[#FACC15] w-full h-[48px] rounded-3xl text-lg text-[#166534] font-bold">Donate Now</button>
             </div>
         </section>
 

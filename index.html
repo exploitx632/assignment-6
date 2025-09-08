@@ -82,24 +82,24 @@
     <div class="flex justify-center items-center my-4 hidden" id="spinner-container"><span
             class="loading loading-spinner loading-xl"></span></div>
     <!-- main section  -->
-    <main class="bg-[#F0FDF4] py-14 " id="all-plants-container">
+    <main class="bg-[#F0FDF4] pt-14 " id="all-plants-container">
         <h2 class="text-4xl font-semibold text-center ">Choose Your Trees</h2>
 
         <!-- all tree section  -->
-        <section class="flex justify-center gap-6 w-[95vw] md:max-h-[920px]  mt-5 mx-auto" id="all-tree">
+        <section class="grid grid-cols-5 gap-6 w-[1250px] md:max-h-[880px]  mt-5 mx-auto" id="all-tree">
             <!-- categories section  -->
-            <div class="w-[300px] text-black h-auto" id="category-container">
+            <div class="col-span-1 text-black h-auto" id="category-container">
 
 
             </div>
             <!-- tree section  -->
-            <div class="w-[1090px] max-h-[920px] grid grid-cols-3 gap-5 overflow-y-scroll " id="plants-container">
+            <div class="col-span-3 max-h-[880px] grid grid-cols-3 gap-5 overflow-y-scroll " id="plants-container">
 
 
 
             </div>
             <!-- cart section  -->
-            <div class=" w-[300px] max-h-[920px]
+            <div class=" col-span-1 max-h-[860px]
              overflow-y-scroll bg-white p-4 rounded-lg" id="cart">
                 <h2 class="font-semibold text-xl mb-3">Your Cart</h2>
                 <div id="cart-container" class="overflow-y-scroll  rounded-lg ">
@@ -131,6 +131,42 @@
             </div>
         </dialog>
 
+        <!-- campaign section  -->
+        <section class="py-8">
+            <h2 class="text-center text-3xl font-semibold">About the Campaign</h2>
+            <div class="campaign-container flex gap-4 justify-center items-center w-[1250px] p-[50px] mx-auto">
+                <div class="campaign-img flex-1"><img src="assets/about.png" alt=""></div>
+                <div class="campaign-cantent flex-1 space-y-4 ">
+                    <p>Green Earth is a global tree plantation initiative dedicated to fighting climate change. Since our start, we’ve planted over 500,000 trees worldwide. By joining our campaign, you help restore forests, create habitats for wildlife, and combat global warming.</p>
+                    <ul class="list-inside list-disc">
+                        <li>Restoration of natural habitats</li>
+                        <li>Improvement of air quality</li>
+                        <li>Support for local communities</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- impact section  -->
+
+        <section class="  space-y-7 bg-[#CFF0DC] p-[100px]">
+            <h2 class="text-3xl font-semibold text-center">Our Impact</h2>
+            <div class="impact-container w-[1250px] mx-auto grid grid-cols-3 gap-10">
+                <div class="p-[40px] text-center bg-white h-[156px] rounded-lg space-y-3">
+                    <h2 class="text-3xl font-bold text-[#15803D]">500K+</h2>
+                    <p>Trees Planted</p>
+                </div>
+                <div class="p-[40px] text-center bg-white h-[156px] rounded-lg space-y-3">
+                    <h2 class="text-3xl font-bold text-[#15803D]">120+</h2>
+                    <p>Communities Involved</p>
+                </div>
+                <div class="p-[40px] text-center bg-white h-[156px] rounded-lg space-y-3">
+                    <h2 class="text-3xl font-bold text-[#15803D]">30+</h2>
+                    <p>Countries Reached</p>
+                </div>
+            </div>
+        </section>
 
 
     </main>

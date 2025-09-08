@@ -16,7 +16,7 @@ const cartList = [];
 const removeActiveBtn = () => {
   const removeActive = document.querySelectorAll(".category-btn");
   removeActive.forEach((btn) => btn.classList.remove("active"));
-  document.getElementById("cart").style.height = "920px";
+  document.getElementById("cart").classList.add("md:h-[920px]")
 };
 
 // spinner function when network throttling
@@ -69,7 +69,7 @@ const categoryPlant = (id) => {
     .then((data) => {
       removeActiveBtn();
       document.getElementById(`categoryBtn${id}`).classList.add("active");
-      document.getElementById("cart").style.height = "420px";
+      document.getElementById("cart").classList.add("md:h-[420px]");
       showCategoryPlant(data.plants);
     });
 };

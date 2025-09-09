@@ -12,7 +12,6 @@
 4. What are arrow functions in ES6?
    ans: arrow function is declare like variable and short way to declare a function .
    no need return keyword for one line arrow function to return value
-   arrow function inherit this from parent function
 
    
 6. How does destructuring assignment work in ES6?

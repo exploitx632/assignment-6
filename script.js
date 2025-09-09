@@ -82,7 +82,7 @@ const innerHTMLfunc = (plants) => {
     let plantName = plant.name;
     let plantPrice = plant.price;
     const div = document.createElement("div");
-    div.innerHTML = `<div class="p-4 flex flex-col justify-around items-start space-y-5 bg-white rounded-lg h-[420px] col-span-1">
+    div.innerHTML = `<div class="p-4 flex flex-col justify-around items-start md:space-y-5 space-y-3 bg-white rounded-lg h-[420px] col-span-1">
                     <div  class="w-full h-[186px] rounded-md bg-[url(${plant.image})] bg-cover bg-center"></div>
                     
                     <h2 onclick="loadPlantDetails(${plant.id})" class="text-[14px] font-bold cursor-pointer " id="plant-name">${plant.name}</h2>

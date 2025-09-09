@@ -60,7 +60,7 @@
         </nav>
 
         <!-- banner section  -->
-        <section class="banner md:flex justify-center items-center bg-[#CFF0DC] ">
+        <section class="banner flex flex-col-reverse md:flex-row pb-10 md:pb-0 justify-center items-center bg-[#CFF0DC] ">
             <div class="hidden md:block"><img src="assets/hero-leaf1.png" alt=""></div>
             <div
                 class="banner-content md:flex flex-col justify-center items-center space-y-2 md:space-y-5 px-3 md:px-10 text-center pt-5">
@@ -78,11 +78,11 @@
             class="loading loading-spinner loading-xl"></span></div>
     <!-- main section  -->
     <main class="bg-[#F0FDF4] md:pt-14 pt-7 " id="all-plants-container">
-        <h2 class="md:text-4xl text-xl font-semibold text-center ">Choose Your Trees</h2>
+        <h2 class="md:text-4xl text-xl font-semibold text-center mb-6 ">Choose Your Trees</h2>
 
         <!-- all tree section  -->
         <section
-            class="md:grid md:grid-cols-5 md:gap-6 md:w-[1650px] w-[100vw] md:max-h-[880px] h-auto  md:mt-5 mx-auto space-y-5 px-4"
+            class="md:grid md:grid-cols-5 md:gap-4 md:w-[95vw] w-[100vw] md:max-h-[880px] h-auto  md:mt-5 mx-auto space-y-5 px-4 md:mb-10"
             id="all-tree">
             <!-- categories section  -->
             <div class="md:col-span-1 text-black h-auto mb-5" id="category-container">
@@ -98,9 +98,9 @@
             </div>
             <!-- cart section  -->
             <div class="col-span-1 md:max-h-[860px] h-auto
-             overflow-y-scroll bg-white p-4 md:mx-4 rounded-lg" id="cart">
-                <h2 class="font-semibold text-xl mb-3">Your Cart</h2>
-                <div id="cart-container" class="overflow-y-scroll p-4 rounded-lg ">
+             overflow-y-scroll bg-white p-4  rounded-lg" id="cart">
+                <h2 class="font-semibold text-xl md:mb-3">Your Cart</h2>
+                <div id="cart-container" class="overflow-y-scroll rounded-lg ">
 
                 </div>
                 <hr class="mt-2">
@@ -113,9 +113,9 @@
 
         <!-- Open the modal using ID.showModal() method -->
         <!-- <button class="btn" onclick="plant_modal.showModal()">open modal</button> -->
-        <dialog id="plant_modal" class="modal modal-bottom sm:modal-middle">
-            <div class="modal-box ">
-                <div id="plant-detail-container" class="space-y-4">
+        <dialog id="plant_modal" class="modal modal-bottom sm:modal-middle ">
+            <div class="modal-box w-[90%] my-7 mx-auto rounded-md">
+                <div id="plant-detail-container" class="space-y-4 ">
 
                 </div>
 
@@ -131,7 +131,7 @@
         </dialog>
 
         <!-- campaign section  -->
-        <section class="py-8 space-y-5 md:w-[1650px] mx-auto">
+        <section class="py-8 space-y-5 md:w-[95vw] mx-auto">
             <h2 class="text-center text-3xl font-semibold">About the Campaign</h2>
             <div
                 class="campaign-container md:flex gap-4 justify-center items-center md:w-[1250px] md:p-[50px] px-4 mx-auto space-y-4">
@@ -176,7 +176,7 @@
 
         <!-- plant form today -->
         <section
-            class="bg-[#166534] md:h-[590px]  h-auto w-full p-4 flex flex-col justify-center items-center space-y-5 md:space-y-9">
+            class="bg-[#166534] md:h-[590px]  h-auto w-full p-4 pb-7 flex flex-col justify-center items-center space-y-5 md:space-y-9">
             <h2 class="text-3xl font-semibold text-white">Plant a Tree Today</h2>
             <div class="plant-form md:h-[311px] md:w-[650px] w-full p-4 md:p-[40px] bg-[#15803D] rounded-lg space-y-4">
                 <div class="flex flex-col space-y-3">
